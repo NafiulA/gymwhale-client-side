@@ -1,0 +1,10 @@
+.rest {
+    color: whitesmoke;
+    border-bottom: 3px solid grey;
+
+}
+
+.active {
+    color: #B4161B;
+    border-bottom: 3px solid #B4161B;
+}
