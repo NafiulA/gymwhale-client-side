@@ -5,12 +5,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'flowbite';
 import { BrowserRouter } from 'react-router-dom';
+import { ServiceDataContextProvider } from './hooks/ServiceDataContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
-      <App />
+      <ServiceDataContextProvider>
+        <App />
+      </ServiceDataContextProvider>
     </React.StrictMode>
   </BrowserRouter>
 

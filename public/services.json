@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "name": "1-on-1 Training",
+    "description": "ELITE, RESULTS BASED PERSONAL TRAINING SERVICES IN THE BOULDER, CO AREA.",
+    "price": 499,
+    "img": "https://i.ibb.co/XV9SmD6/jonathan-borba-R0y-b-EUji-OM-unsplash.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Online Training",
+    "description": "HIGHLY EFFECTIVE ONLINE STRENGTH AND CONDITIONING PROGRAMS FOR MEN & WOMEN.",
+    "price": 399,
+    "img": "https://i.ibb.co/3WdPKhP/istockphoto-1176295972-612x612.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Corporate Session",
+    "description": "CONSULT, DEVELOP AND SUPERVISE GROUP EXERCISE PROGRAMS FOR COMPANIES AND THEIR EMPLOYEES.",
+    "price": 999,
+    "img": "https://i.ibb.co/n8fMNLF/geert-pieters-3-Rnk-Zp-Dqs-EI-unsplash.jpg"
+  }
+]
