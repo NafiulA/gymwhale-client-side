@@ -57,10 +57,13 @@ const Login = () => {
         signInWithFacebook();
     }
     const handlePasswordReset = async () => {
-        await sendPasswordResetEmail(email);
-    }
-    if (sending) {
-        toast.loading("Sending Email..", { duration: 1000, id: "resetEmail" })
+        if (email) {
+            await sendPasswordResetEmail(email);
+            toast.success("Password reset email sent!", { id: "resetEmailSent" });
+        }
+        else {
+            toast.error("Please provide an email!", { id: "resetEmail" });
+        }
     }
 
     if (signInError) {
