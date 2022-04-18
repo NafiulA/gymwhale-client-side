@@ -28,7 +28,7 @@ const Login = () => {
     }
     const handleLogin = (event) => {
         event.preventDefault();
-        if (email && password) {
+        if (email) {
             if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
                 if (password.length > 7) {
                     signInWithEmailAndPassword(email, password);
@@ -59,6 +59,9 @@ const Login = () => {
     const handlePasswordReset = async () => {
         await sendPasswordResetEmail(email);
     }
+    if (sending) {
+        toast.loading("Sending Email..", { duration: 1000, id: "resetEmail" })
+    }
 
     if (signInError) {
         toast.error(`${signInError}`, { id: "signInError" });
@@ -67,6 +70,7 @@ const Login = () => {
         toast.error(`${resetError}`, { id: "resetError" });
     }
     if (user || userGoogle || userFacebook || userGithub) {
+        toast.success("Login Successful", { id: "login" })
         navigate(from, { replace: true });
     }
 
@@ -88,10 +92,9 @@ const Login = () => {
                             <input onBlur={handlePasswordBlur} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" />
                         </div>
                         <div className="flex items-center justify-between">
-                            <button className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                                Log In
-                            </button>
-                            <button onClick={handlePasswordReset} className="inline-block align-baseline font-bold text-sm text-blue-900 hover:text-blue-700">
+                            <input className="bg-blue-900 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Log In">
+                            </input>
+                            <button onClick={handlePasswordReset} className="inline-block align-baseline font-bold text-sm text-blue-900 hover:text-blue-700" type='button' >
                                 Forgot Password?
                             </button>
                         </div>
@@ -106,15 +109,15 @@ const Login = () => {
                         <hr className='w-1/3 border-2 border-gray-300' />
                     </div>
                     <div className='flex justify-evenly'>
-                        <button onClick={handleGoogleLogin} className='p-4 border border-blue-900 rounded-lg'>
+                        <button onClick={handleGoogleLogin} className='p-4 border border-blue-900 rounded-lg' type='button'>
                             <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon>
                             <p>Google</p>
                         </button>
-                        <button onClick={handleGithubLogin} className='p-4 border border-blue-900 rounded-lg'>
+                        <button onClick={handleGithubLogin} className='p-4 border border-blue-900 rounded-lg' type='button'>
                             <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
                             <p>Github</p>
                         </button>
-                        <button onClick={handleFacebookLogin} className='p-4 border border-blue-900 rounded-lg'>
+                        <button onClick={handleFacebookLogin} className='p-4 border border-blue-900 rounded-lg' type='button'>
                             <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>
                             <p>Facebook</p>
                         </button>
