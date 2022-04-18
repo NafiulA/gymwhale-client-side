@@ -74,10 +74,11 @@ const Login = () => {
         navigate(from, { replace: true });
     }
 
+
     return (
         <div className='min-h-[700px]'>
             <div className='mt-10'>
-                <div className="bg-white mx-auto w-5/6 md:w-1/3 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div className="bg-white mx-auto w-full md:w-2/3 lg:w-1/3 shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <form onSubmit={handleLogin}>
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">

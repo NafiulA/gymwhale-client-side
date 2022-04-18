@@ -1,7 +1,8 @@
 import { faFacebook, faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { sendEmailVerification } from 'firebase/auth';
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword, useSendPasswordResetEmail, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -19,6 +20,7 @@ const Register = () => {
     const [signInWithGoogle, userGoogle, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithGithub, userGithub, githubLoading, githubError] = useSignInWithGithub(auth);
     const [signInWithFacebook, userFacebook, facebookLoading, facebookError] = useSignInWithFacebook(auth);
+
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -72,13 +74,16 @@ const Register = () => {
         toast.error(`${error}`, { id: "signInError" });
     }
     if (user || userGoogle || userFacebook || userGithub) {
+        sendEmailVerification(auth.currentUser)
+            .then(toast.success("Verification Email sent!"));
         toast.success("Registration Successful", { id: "registration" })
         navigate(from, { replace: true });
     }
+
     return (
         <div className='min-h-[700px]'>
             <div className='mt-10'>
-                <div className="bg-white mx-auto w-5/6 md:w-1/3 shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <div className="bg-white mx-auto w-full md:w-2/3 lg:w-1/3 shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <form onSubmit={handleLogin}>
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
