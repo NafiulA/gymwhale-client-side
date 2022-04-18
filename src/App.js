@@ -5,6 +5,7 @@ import Blogs from './components/Blogs/Blogs';
 import Checkout from './components/Checkout/Checkout';
 import Contact from './components/Contact/Contact';
 import Extras from './components/Extras/Extras';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
@@ -29,6 +30,7 @@ function App() {
         <Route path='/extras' element={<Extras></Extras>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
