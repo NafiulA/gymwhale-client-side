@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 import "./Header.css";
 import CustomLink from "../CustomLink/CustomLink";
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { signOut } from 'firebase/auth';
 const Header = () => {
     const [open, setOpen] = useState(false);
+    const [user] = useAuthState(auth);
     return (
         <div className='sticky top-0 z-50'>
             <nav className="border-gray-200 px-2 py-2.5 bg-gray-800">
@@ -32,9 +36,15 @@ const Header = () => {
                             <li>
                                 <CustomLink to="/contact">Contact</CustomLink>
                             </li>
-                            <li>
-                                <CustomLink to="/login">Login</CustomLink>
-                            </li>
+                            {user ?
+                                <li>
+                                    <button className={"block text-white font-semibold py-2 pr-3 pl-3 border-b-2 border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"} onClick={() => { signOut(auth) }}>Logout</button>
+                                </li>
+                                :
+                                <li>
+                                    <CustomLink to="/login">Login</CustomLink>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>
