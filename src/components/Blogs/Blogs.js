@@ -14,7 +14,7 @@ const Blogs = () => {
                     <p className='text-xl pt-2'>A: We are currently using firebase for authentication purposes. We can authenticate users to our web apps using firebases authentication service. With their authentication service, we can use email and password, phone , google, facebook, github and many other option to authenticate. There are many other options in current market for providing authentication. Such as, 1. Back4app, 2. Parse, 3. AWS amplify, 4. Backendless, 5. Kuzzle, and many more. </p>
                 </div>
                 <div className='my-6 p-6 border-2 rounded-xl shadow-lg'>
-                    <p className='text-2xl font-semibold' >Q2. What other services does firebase provide other than authentication?</p>
+                    <p className='text-2xl font-semibold' >Q3. What other services does firebase provide other than authentication?</p>
                     <p className='text-xl pt-2'>A: Firebase is Google's application development platform. It is a toolset that helps us to build, improve and grow our app all ina very user friendly way. To build better apps, some services it provides are cloud functions, cloud storage, hosting, machine learing kit, realtime database, etc. To imporve our app's quality, firebase provides services like crashlytics, performance monitoring. And last but not the least to grow our app we can use services like in-app messaging, cloud messaging, user analytics and many more. In one line we can say,firebase toolset accelarates the development journey and help a developer in many ways.</p>
                 </div>
             </div>
