@@ -73,9 +73,11 @@ const Register = () => {
     if (error) {
         toast.error(`${error}`, { id: "signInError" });
     }
-    if (user || userGoogle || userFacebook || userGithub) {
+    if (user) {
         sendEmailVerification(auth.currentUser)
             .then(toast.success("Verification Email sent!"));
+    }
+    if (user || userGoogle || userFacebook || userGithub) {
         toast.success("Registration Successful", { id: "registration" })
         navigate(from, { replace: true });
     }
